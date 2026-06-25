@@ -13,9 +13,9 @@ function App() {
     try {
       const [studentsRes, attendanceRes] = await Promise.all([
         //fetch("http://localhost:3000/students"),
-        fetch('${API_URL}/students'),
+        fetch(`${API_URL}/students`),
         //fetch("http://localhost:3000/attendance/today")
-        fetch('${API_URL}/attendance'),
+        fetch(`${API_URL}/attendance`),
       ]);
 
       const studentsData = await studentsRes.json();
@@ -51,7 +51,7 @@ function App() {
   // Save attendance
   const saveAttendance = async (studentId, status) => {
     try {
-      await fetch('${API_URL}/attendance', {
+      await fetch(`${API_URL}/attendance`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -97,7 +97,7 @@ function App() {
   const resetAttendance = async () => {
     try {
       const response = await fetch(
-        '${API_URL}/attendance?today',
+        `${API_URL}/attendance?today`,
         {
           method: "DELETE"
         }
