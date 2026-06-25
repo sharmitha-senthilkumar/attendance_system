@@ -6,9 +6,6 @@ function App() {
 
   const API_URL = import.meta.env.VITE_API_URL || "https://localhost:3000";
 
-
-  const [students, setStudents] = useState([]);
-
   useEffect(() => {
     getStudents();
   }, []);
